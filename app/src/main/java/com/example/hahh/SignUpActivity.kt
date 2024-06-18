@@ -31,9 +31,9 @@ class SignUpActivity : AppCompatActivity() {
             val namaDepan = namaDepanEditText.text.toString().trim()
             val namaBelakang = namaBelakangEditText.text.toString().trim()
             val email = emailEditText.text.toString().trim()
-            val password = passwordEditText.text.toString().trim()
+            val sandi = passwordEditText.text.toString().trim()
             val role = "user"
-            if (namaDepan.isEmpty() || namaBelakang.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            if (namaDepan.isEmpty() || namaBelakang.isEmpty() || email.isEmpty() || sandi.isEmpty()) {
                 Toast.makeText(this, "Harap diisi semuanya", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             } else {
@@ -41,7 +41,7 @@ class SignUpActivity : AppCompatActivity() {
                     namaDepan = namaDepan,
                     namaBelakang = namaBelakang,
                     email = email,
-                    password = password,
+                    sandi = sandi,
                     role = role
                 )
                 registerUser(newUser)
