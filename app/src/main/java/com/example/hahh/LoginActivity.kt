@@ -1,5 +1,6 @@
 package com.example.hahh
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -25,12 +26,12 @@ class LoginActivity : AppCompatActivity() {
 
         loginButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
-            val password = passwordEditText.text.toString().trim()
+            val sandi = passwordEditText.text.toString().trim()
 
-            if (email.isEmpty() || password.isEmpty()) {
+            if (email.isEmpty() || sandi.isEmpty()) {
                 Toast.makeText(this, "Email dan Sandi harus diisi", Toast.LENGTH_SHORT).show()
             } else {
-                val loginUser = Login(email = email, password = password)
+                val loginUser = Login(email = email, sandi = sandi)
                 loginUser(loginUser)
             }
         }
@@ -42,9 +43,12 @@ class LoginActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val loggedInUser = response.body()
                     Toast.makeText(this@LoginActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
-                    // Tambahkan logika setelah login berhasil
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 } else {
-                    Toast.makeText(this@LoginActivity, "Login gagal: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    val errorBody = response.errorBody()?.string() ?: "Unknown error"
+                    Toast.makeText(this@LoginActivity, "Login gagal: ${response.code()} - $errorBody}", Toast.LENGTH_SHORT).show()
                 }
             }
 
