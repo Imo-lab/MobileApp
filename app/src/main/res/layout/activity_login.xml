@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -21,17 +21,15 @@
         tools:ignore="ContentDescription" />
 
     <TextView
+        android:id ="@+id/iKonseptual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_semibold"
         android:text="i-Konseptual"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.344" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,31 +37,32 @@
         android:fontFamily="@font/inter_semibold"
         android:text="MASUK"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iKonseptual"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.402" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/sandi_baru"
+        android:id="@+id/input_text_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="503dp" />
+        tools:layout_editor_absoluteY="443dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/input_text"
+        android:id="@+id/input_text_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
         tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="421dp" />
+        tools:layout_editor_absoluteY="365dp" />
 
     <TextView
+        android:id="@+id/emailLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_semibold"
