@@ -1,5 +1,6 @@
 package com.example.hahh
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -11,11 +12,11 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
-
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
-
+    private lateinit var forgotPasswordTextView: Button
+    private lateinit var registerTextView: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -23,6 +24,8 @@ class LoginActivity : AppCompatActivity() {
         emailEditText = findViewById(R.id.input_text_email)
         passwordEditText = findViewById(R.id.input_text_password)
         loginButton = findViewById(R.id.button)
+        forgotPasswordTextView = findViewById(R.id.changePassword)
+        registerTextView = findViewById(R.id.register)
 
         loginButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
@@ -35,13 +38,31 @@ class LoginActivity : AppCompatActivity() {
                 loginUser(loginUser)
             }
         }
+
+        forgotPasswordTextView.setOnClickListener {
+            val intent = Intent(this@LoginActivity, ChangePasswordActivity::class.java)
+            startActivity(intent)
+        }
+
+        registerTextView.setOnClickListener {
+            val intent = Intent(this@LoginActivity, SignUpActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loginUser(user: Login) {
-        RetrofitClient.instance.login(user).enqueue(object : Callback<Login> {
-            override fun onResponse(call: Call<Login>, response: Response<Login>) {
-                if (response.isSuccessful) {
-                    val loggedInUser = response.body()
+        AuthClient.instance.login(user).enqueue(object : Callback<LoginResponse> {
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                if (response.isSuccessful && response.body() != null) {
+                    val data = response.body()?.data
+                    if(data != null){
+                        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("id", data.no.toString())
+                        editor.putString("email", data.email)
+                        editor.putString("role", data.role)
+                        editor.apply()
+                    }
                     Toast.makeText(this@LoginActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
@@ -52,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<Login>, t: Throwable) {
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 t.printStackTrace()
                 Toast.makeText(this@LoginActivity, "Login gagal: ${t.message}", Toast.LENGTH_SHORT).show()
             }
