@@ -38,41 +38,69 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="32dp"
                 android:fontFamily="@font/inter_semibold"
-                android:text="GANTI SANDI"
+                android:text="DAFTAR"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/editTextPassLama"
+                android:id="@+id/editTextNamaDepan"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/login_box"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/card"
                 android:ems="10"
-                android:hint="Sandi Lama"
-                android:inputType="text|textPassword"
+                android:hint="Nama depan"
+                android:inputType="text"
                 android:textAlignment="center" />
 
             <EditText
-                android:id="@+id/editTextPassBaru"
+                android:id="@+id/editTextNamaBelakang"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Nama Belakang"
+                android:textAlignment="center"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@drawable/card"/>
+
+            <EditText
+                android:id="@+id/editTextEmailNew"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/card"
+                android:ems="10"
+                android:hint="E-mail"
+                android:inputType="text|textEmailAddress"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/login_box"
+                android:background="@drawable/card"
                 android:ems="10"
-                android:hint="Sandi Baru"
+                android:hint="Sandi"
                 android:inputType="text|textPassword"
                 android:textAlignment="center" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_login"
+                android:id="@+id/button_signup"
                 android:background="@drawable/button_box"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -80,11 +108,10 @@
                 android:layout_marginBottom="12dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
-                android:text="KIRIM"
+                android:text="DAFTAR"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"/>
-
 
         </LinearLayout>
     </ScrollView>
