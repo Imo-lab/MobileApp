@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SignUpActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -60,11 +60,11 @@
         app:layout_constraintVertical_bias="0.484" />
 
     <EditText
-        android:id="@+id/input_text"
+        android:id="@+id/input_first_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,11 +86,11 @@
         app:layout_constraintVertical_bias="0.582" />
 
     <EditText
-        android:id="@+id/sandi_baru"
+        android:id="@+id/input_last_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +98,7 @@
         app:layout_constraintVertical_bias="0.626" />
 
     <EditText
-        android:id="@+id/sandi_baru"
+        android:id="@+id/input_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -124,7 +124,7 @@
         app:layout_constraintVertical_bias="0.682" />
 
     <EditText
-        android:id="@+id/sandi_baru"
+        android:id="@+id/input_sandi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
